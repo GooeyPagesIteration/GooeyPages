@@ -18,13 +18,18 @@ userController.createUser = function(req, res) {
   newUser.save(function(err, result) {
   	if (err) return res.render('./../client/signup', {error: 'Username invalid'});
     User.findOne({username: req.body.username,}, (err, result) => {
-      const userFolder = path.join(__dirname, '../userpages/') + result._id;
       fs.mkdir(`userpages/${result._id}`, (err) => {
         if(err) return console.log(err);
         fs.mkdir(`userpages/${result._id}/client`, (err => {
           if(err) return console.log(err);
           fs.mkdir(`userpages/${result._id}/server`, (err => {
-            fs.createReadStream(path.join(__dirname,'../../templates/package.json')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/package.json`)));
+            fs.mkdir(`userpages/${result._id}/js`, (err => {
+              fs.mkdir(`userpages/${result._id}/css`, (err => {
+                fs.createReadStream(path.join(__dirname,'../../templates/package.json')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/package.json`)));
+                fs.createReadStream(path.join(__dirname,'../../templates/index.js')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/js/index.js`)));
+                fs.createReadStream(path.join(__dirname,'../../templates/style.css')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/css/style.css`)));
+              }))
+            }))
           }));
           cookieController.setSSIDCookie(res, result._id);
           res.redirect('/build');

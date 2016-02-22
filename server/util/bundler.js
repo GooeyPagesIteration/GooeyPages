@@ -16,6 +16,18 @@ Bundler.bundle = function(req,res, next) {
     for(var i in files) {
       serverText += `app.get('/${files[i].replace(/(.html)$/g,'')}', (req, res) => {\n\tres.sendFile(path.join(__dirname,'./../client/${files[i]}'))\n})\n\n`
     }
+    
+    serverText += `app.get("/css/style.css", (req, res) => {
+      res.sendFile(path.join(__dirname,"../css/style.css"))
+    });\n`;
+
+    serverText += `app.get("/js/index.js", (req, res) => {
+      res.sendFile(path.join(__dirname,"../js/index.js"))
+    });\n`;
+
+    serverText += '\napp.listen(3000);'
+
+    console.log(serverText)
     //write actual file
     fs.writeFile(path.join(__dirname, `../../userpages/${req.cookies.ssid}/server/server.js`), serverText, (err) => {
       if (err) throw err;

@@ -1,7 +1,8 @@
 //save html on node server
 function saveHTML() {
+  console.log('go')
   name = document.getElementById('name').value;
-  inner = document.getElementsByClassName('template')[0].innerHTML;
+  inner = document.getElementById('particles-js').innerHTML;
 
   $.ajax({
     method: 'POST',

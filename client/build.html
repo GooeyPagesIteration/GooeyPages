@@ -2,42 +2,95 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Dev Gui</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'><meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Portfolio Home Page</title>
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/buttons.js"></script>
   </head>
 
-  <body class="flexbox-container">
-    <input id="name" type="text" name="name" placeholder="Name of page"></input>
-    <button type="button" name="save" id="save" onclick="saveHTML()">Save</button>
-    <button type="button" name="download" id="download" onclick="download()">Download</button>
-
-    <div class="template ui-widget-header" id="sortable"></div>
-
-
-    <div class="toolbar" id="set">
-
-      <div id="draggableIMAGE" class="ui-widget-content">
-        <p>IMAGE</p>
+  <body>
+    <div class="menuRow">
+      <div class="menu" id="set">
+        <div id="draggableIMAGE" class="ui-widget-content">
+          <p>IMAGE</p>
+        </div>
+        <div id="draggableTEXT" class="ui-widget-content">
+          <p>TEXT</p>
+        </div>
+        <div id="draggableCOL" class="ui-widget-content">
+          <p>2COL</p>
+        </div>
       </div>
-      <div id="draggableTEXT" class="ui-widget-content">
-        <p>TEXT</p>
+      <div class="menu2">
+        <div class="save" onclick="saveHTML()">
+          save
+        </div>
+        <div class="export" onclick="download()">
+          export
+        </div>
+        <div class="export" onclick="logout()">
+          logout
+        </div>
+        <div class="" id="grid">
+          Show zones
+        </div>
       </div>
-      <div id="draggableBOXEDTEXT" class="ui-widget-content">
-        <p>BOXEDTEXT</p>
-      </div>
-
+         <input id="name" type="text" name="name" placeholder="Name of page"></input>
     </div>
 
-  </body>
+    <div id="particles-js">
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-    <script src="js/editor.js"></script>
+      <div class="container" id="sortable">
+        <div class="row top sortable">
+          <div class="twelve column sortable">
+            <div class="logo sortable">V</div>
+            <h1 contenteditable="true">Joseph William Victory</h1>
+            <h2> Web Developer</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="one-half column">
+            <div class="pens pulled">
+              <h1 contenteditable="true">Pens</h1>
+              <ul></ul>
+            </div>
+          </div>
+
+          <div class="one-half column">
+            <div class="posts pulled">
+              <h1 contenteditable="true">Posts</h1>
+              <ul class="sortable"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container ">
+      <div class="footer">
+      <p contenteditable="true">Made using the awesome <a href="">Love what you do</p>
+     </div>
+    </div>
+      </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
+
     <script src="js/index.js"></script>
-    <script src="js/buttons.js"></script>
 
+    <script src=
+    'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src=
+    'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'>
     </script>
-
+    <script src="js/index.js">
+    </script>
+  </body>
 </html>
