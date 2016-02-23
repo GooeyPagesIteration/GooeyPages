@@ -19,6 +19,9 @@
     <!-- I pt of the menu where the dragable options live -->
     <div class="menuRow">
       <div class="menu" id="set">
+
+        <!-- draggable + ANYTHING is a special id given to the div in order to let elements to be moved using the mouse. https://jqueryui.com/draggable/ -->
+        <!-- .ui-widget-content: Class to be applied to content containers. Applies content container styles to an element and its child text, links, and icons. (can be applied to parent or sibling of header). -->
         <div id="draggableIMAGE" class="ui-widget-content">
           <p>IMAGE</p>
         </div>
@@ -92,12 +95,13 @@
             </div>
           </div>
     </div>
-
-
-
-
-
 <!-- END OF HEADER CONTAINER -->
+
+
+
+
+
+
     <div class="container ">
       <div class="footer">
           <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
@@ -110,7 +114,7 @@
     <script src=
     'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'>
     </script>
-    <!-- INDEX.JS IS GIVING THE DRAG DROP FUNC -->
+    <!-- INDEX.JS IS GIVING THE DRAG DROP FUNC and appending the dragged and dropped items -->
     <script src="js/index.js"></script>
     <script src="js/buttons.js"></script>
 
