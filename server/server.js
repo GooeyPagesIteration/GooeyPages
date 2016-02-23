@@ -23,6 +23,7 @@ app.use(cookieParser());
 
 //home page
 app.get('/', function(req, res) {
+  // this is serving index.ejs
   res.render('./../client/index');
 });
 
