@@ -1,3 +1,7 @@
+
+// DYNAMIC DATA FOR DEMO THEME////////////////////////////////////
+// NOTE : Used theme from other resource and pulled in the info
+// /////////////////////////////////////////////
 $.getJSON("http://cpv2api.com/posts/published/j-w-v", function(resp){
 	if(resp.success){
 		for (var i = 0; i < resp.data.length; i++) {
@@ -14,7 +18,9 @@ $.getJSON("http://cpv2api.com/pens/showcase/j-w-v", function(resp){
 	}
 });
 
-
+// ANIMATION LIBRARY////////////////////////////////////
+// NOTE : Background animation for demo theme
+// /////////////////////////////////////////////
 particlesJS("particles-js", {
   "particles": {
     "number": {
@@ -127,138 +133,8 @@ particlesJS("particles-js", {
 });
 
 
-
-
-
-
-
-//sortables
-
-
-// $(function(){
-
-  // DOM USER INTERACTION LOGIC////////////////////////////////////
-  // NOTE : jQuery methods to manipulate the users input and to render ui
-  //        changes.
-  // /////////////////////////////////////////////
-  // $('.rendered').toggle();
-  //
-  // $('.edit').attr('contenteditable', true);
-  //
-  // $('.content').keyup(function(){
-  // $('.rendered').html($('.content').text());
-  // });
-  //
-  // $('.toggle').click(function(){
-  //   $(this).toggleClass('green');
-  // });
-  //
-  // $('.trender').click(function(){
-  //   $('.rendered').toggle();
-  // });
-
-
-  // DRAG AND DROP////////////////////////////////
-  // NOTE :
-  // /////////////////////////////////////////////
-
-  // Initialize sorting zone
-  var $result = $('#sortable');
-  var $location = $('div.ui-state-highlight ');
-
-  //Initialize the nodes for the toolbar
-  // $( "#draggableIMAGE" ).draggable({
-  //     connectToSortable: ".container",
-  //     opacity: 0.7,
-  //     helper: "clone",
-  //     revert: "invalid"
-  //   });
-	//
-  // $( "#draggableTEXT" ).draggable({
-  //     connectToSortable: ".container",
-  //     opacity: 0.7,
-  //     helper: "clone",
-  //     revert: "invalid"
-  //   });
-	//
-  //   $('#draggableCOL').draggable({
-  //       connectToSortable: ".container",
-  //       opacity: 0.7,
-  //       helper: "clone",
-  //       revert: "invalid"
-  //   });
-
-	$( "#draggableIMAGE" ).draggable({
-      connectToSortable: ".container",
-      opacity: 0.7,
-      helper: "clone",
-      revert: "invalid"
-    });
-
-  $( "#draggableTEXT" ).draggable({
-      connectToSortable: ".container",
-      opacity: 0.7,
-      helper: "clone",
-      revert: "invalid"
-    });
-
-    $('#draggableCOL').draggable({
-        connectToSortable: ".container",
-        opacity: 0.7,
-        helper: "clone",
-        revert: "invalid"
-    });
-
-  // $('div').draggable({
-  //     connectToSortable: ".container",
-  //     opacity: 0.7,
-  //     // helper: "clone",
-  //     revert: "invalid"
-  // });
-
-		$( "li" ).sortable({
-			connectWith: ".container",
-			placeholder: "ui-state-highlight"
-		});
-
-    $( ".container" ).sortable({
-      connectWith: ".container",
-			placeholder: "ui-state-highlight"
-    });
-
-
-    // GUI TOOLS ///////////////////////////////
-    // NOTES :  These are a series of 'getters'
-    //           and setters for the features
-    // /////////////////////////////////////////
-    $tmp = $("#set div").get(0);
-
-    $("#sortable").sortable({
-        placeholder: "ui-state-highlight ",
-
-        stop: function(event, ui) {
-            console.log("isNew : ", jQuery.data($tmp, "isNew"));
-            console.log("resultHTML : ", jQuery.data($tmp, "resultHTML"));
-        },
-
-        change: function(event, ui) {
-            var pos = ui.helper.index() < ui.placeholder.index()
-                ? { start: ui.helper.index(),
-                      end: ui.placeholder.index()
-                  }
-                : { start: ui.placeholder.index(),
-                      end: ui.helper.index()
-                  }
-            $(this)
-                .children().removeClass( 'highlight' )
-                .not( ui.helper ).slice( pos.start, pos.end ).addClass( 'highlight' );
-        },
-    });
-
-
-
     // GUI TEMPLATE UI//////////////////////////////
-    // NOTE :
+    // NOTE : Initialize Tools for GUI
     // /////////////////////////////////////////////
     $("#set div").draggable({
         connectToSortable: "#sortable",
@@ -300,29 +176,22 @@ particlesJS("particles-js", {
         revert: "invalid"
     });
 
-    function removeHelper(event){
-     return $('custom-helper').remove();
-    }
 
-
-
+    // SHOW HIDE GRID////////////////////////////////////
+		// NOTE : Simple event listener to add class to the users web template.
+		// Makes editable fields easier to see for certain templates
+		// /////////////////////////////////////////////
     $( "#grid" ).click(function() {
-		  // alert( "Handler for .click() called." );
-			// $( "#grid" ).toggleClass(function() {
-			// 	if ( $( this ).parent().is( ".border" ) ) {
-			// 		return "happy";
-			// 	} else {
-			// 		return alert('working');
-			// 	}
-			// });
 
-			$( "#grid" ).toggleClass( border, addOrRemove );
-			console.log('fired');
+			  if ($( "#grid" ).hasClass( "active" )) {
+			    $('#particles-js div, #grid').removeClass('active');
 
-		});
-
-
-
-
+			  }
+				else {
+				  // $('div').css('border', '1px solid white');
+					$( "#particles-js div, #grid" ).addClass( "active" )
+				}
+			 	console.log('fired');
+    });
 
 	// });
