@@ -1,6 +1,6 @@
 const User = require('./userModel');
 const path = require('path');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const cookieController = require('./cookieController.js');
 const sessionController = require('./sessionController.js');
 const fs = require('fs');
@@ -29,8 +29,8 @@ userController.createUser = function(req, res) {
                 fs.createReadStream(path.join(__dirname,'../../templates/package.json')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/package.json`)));
                 fs.createReadStream(path.join(__dirname,'../../templates/index.js')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/js/index.js`)));
                 fs.createReadStream(path.join(__dirname,'../../templates/style.css')).pipe(fs.createWriteStream(path.join(__dirname,`../../userpages/${result._id}/css/style.css`)));
-              }))
-            }))
+              }));
+            }));
           }));
           cookieController.setSSIDCookie(res, result._id);
           res.redirect('/build');
