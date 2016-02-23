@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+  <!-- HTML TO DIPLAY THE WEBPAGE -->
 <html >
   <head>
     <meta charset="UTF-8">
@@ -15,7 +16,7 @@
   </head>
   <body>
     <!-- the menu on the side -->
-    <!-- I pt of the menuw here the dragable options live -->
+    <!-- I pt of the menu where the dragable options live -->
     <div class="menuRow">
       <div class="menu" id="set">
         <div id="draggableIMAGE" class="ui-widget-content">
@@ -38,7 +39,7 @@
           save
         </div>
          <!-- HERE'S the onclick function that allows you to download your created HTML file -->
-        <div class="export" onclick="download()">
+          <div class="export" onclick="download()">
           export
         </div>
 
@@ -57,11 +58,15 @@
 
 
     <div id="particles-js">
-
+<!-- BEGINNING OF HEADER CONTAINER -->
       <div class="container" id="sortable">
         <div class="row top sortable">
           <div class="twelve column sortable">
             <div class="logo sortable">V</div>
+
+
+
+
             <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
             <h1 contenteditable="true">Joseph William Victory</h1>
             <h2> Web Developer</h2>
@@ -76,7 +81,9 @@
               <ul></ul>
             </div>
           </div>
+      </div>
 
+     <div class="row">
           <div class="one-half column">
             <div class="posts pulled">
                 <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
@@ -84,9 +91,13 @@
               <ul class="sortable"></ul>
             </div>
           </div>
-        </div>
-      </div>
+    </div>
 
+
+
+
+
+<!-- END OF HEADER CONTAINER -->
     <div class="container ">
       <div class="footer">
           <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
@@ -99,6 +110,7 @@
     <script src=
     'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'>
     </script>
+    <!-- INDEX.JS IS GIVING THE DRAG DROP FUNC -->
     <script src="js/index.js"></script>
     <script src="js/buttons.js"></script>
 
