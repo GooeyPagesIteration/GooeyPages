@@ -6,11 +6,16 @@ const sessionController = require('./sessionController.js');
 const fs = require('fs');
 const userController = {};
 
+
+
+
+
+
 userController.createUser = function(req, res) {
   if (!req.body.username || !req.body.password) {
     return res.render(path.join(client, 'signup'), {error: 'Must include username and password'});
   }
-
+  
   var newUser = new User({
     username: req.body.username,
     password: req.body.password
@@ -40,24 +45,38 @@ userController.createUser = function(req, res) {
   });
 };
 
+
+
+
+///////////////
+//Got here from having done a post request- if username & PW- to the /login route
+///////////////
+
 userController.verifyUser = function(req, res) {
-  // no username or password provided
+  // if no username or password provided
   if (!req.body.username || !req.body.password) {
     return res.redirect('/signup');
   }
   // username/password is incorrect
   User.findOne({username: req.body.username}, function(err, result) {
 
-    // username not found
+    // IF username not found
     if (err || !result) return res.redirect('/signup');
 
     result.comparePassword(req.body.password, function(err, pswdCheck) {
       if(!pswdCheck) return res.redirect('/signup');
       cookieController.setSSIDCookie(res, result._id);
+
+/////////////////////
+// REDIRECT!
+/////////////////////
       res.redirect('/build');
     });
   });
 };
+
+
+
 
 
 module.exports = userController;

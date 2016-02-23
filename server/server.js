@@ -17,9 +17,11 @@ mongoose.connect(mongoURI);
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.use(express.static('client'));
 app.use(cookieParser());
+
+
+
 
 //home page
 app.get('/', function(req, res) {
@@ -27,26 +29,22 @@ app.get('/', function(req, res) {
   res.render('./../client/index');
 });
 
+//we post to /login the username and PW inputted to login
+app.post('/login', userController.verifyUser);
+
 
 //build page after login
 app.get('/build', sessionController.isLoggedIn, (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/build.html'));
 });
-app.use(express.static('client'));
+
 
 app.post('/save', saver, (req, res) => {
   console.log(req.cookies.ssid);
 });
 
 
-//scrapped for now - would like to add oauth to github to create github pages creation
-// app.get('/github', git.start);
-// app.get('/gitgo', git.oauth);
-// app.get('/gitoauth', (req, res) => {
-//   console.log('here')
-// })
-
-//download function
+//download function (that lives in client/js/buttons.js) brings you here
 app.use('/download', bundler.bundle);
 app.get('/download', (req, res) => {
   //zip folder and sends to user
@@ -64,14 +62,11 @@ app.get('/signup', function(req, res) {
 });
 
 
-app.post('/login', userController.verifyUser);
-
 app.use('/logout', cookieParser());
 app.get('/logout', function(req, res) {
   sessionController.logout(req.cookies.ssid);
   res.redirect('/');
 });
-
 
 
 

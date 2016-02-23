@@ -9,11 +9,18 @@
 		    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 				<link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
 
+<!-- Skeleton is the library being used in order to split up pens and posts and segment the draggable containers -->
 		    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
 
-    <link rel="stylesheet" href="css/style.css">
-
+        <link rel="stylesheet" href="css/style.css">
   </head>
+
+
+
+
+
+
+
   <body>
     <!-- the menu on the side -->
     <!-- I pt of the menu where the dragable options live -->
@@ -35,16 +42,26 @@
 
 
 
+
+<!--  -->
+<!--  -->
+<!-- BUTTONS FOR SAVE AND EXPORT. THIS IS WHERE ALL NEW FUNCTIONABILITY COMES FROM!!!! -->
+<!--  -->
+<!--  -->
       <!-- THIS IS the II part of the menu where the 2 SAVE options live -->
       <div class="menu2">
-        <!-- Here is the function call to the SAVE button -->
+        <!-- saveHTML func live in /client/js/button.js-->
         <div class="save" onclick="saveHTML()">
           save
         </div>
-         <!-- HERE'S the onclick function that allows you to download your created HTML file -->
+         <!-- download func live in /client/js/button.js-->
           <div class="export" onclick="download()">
           export
         </div>
+
+
+
+
 
 
         <!-- This is the III pt of the side menu where you can ask to show grid lines, the header grid lines are inaccurate! -->
@@ -59,7 +76,7 @@
 
 
 
-
+    <!-- div particle-js is where the template is being shown  -->
     <div id="particles-js">
 <!-- BEGINNING OF HEADER CONTAINER -->
       <div class="container" id="sortable">
@@ -95,16 +112,15 @@
             </div>
           </div>
     </div>
+
+    <div class="container ">
+      <div class="footer">
+
 <!-- END OF HEADER CONTAINER -->
 
 
 
-
-
-
-    <div class="container ">
-      <div class="footer">
-          <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
+<!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
       <p contenteditable="true">Made using the awesome <a href="">Love what you do</p>
      </div>
     </div>
