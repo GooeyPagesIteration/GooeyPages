@@ -18,8 +18,8 @@ module.exports = function Saver(req, res, next) {
 
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
 
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/buttons.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/buttons.js"></script>
       <meta charset="utf-8">
       <title>${req.body.name}</title>
     </head>
@@ -30,14 +30,14 @@ module.exports = function Saver(req, res, next) {
     </body>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
 
-    <script src="js/index.js"></script>
+    <script src="../js/index.js"></script>
 
     <script src=
     'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src=
     'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'>
     </script>
-    <script src="js/index.js">
+    <script src="../js/index.js">
     </script>
   </html>`;
 

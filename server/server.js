@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
 
 //build page after login
 app.get('/build', sessionController.isLoggedIn, (req, res) => {
-  res.sendFile(path.join(__dirname, './../client/build.html'));
+  res.sendFile(path.join(__dirname, '/../client/build.html'));
 });
 app.use(express.static('client'));
 

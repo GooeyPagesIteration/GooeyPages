@@ -24,8 +24,6 @@
     "body-parser": "^1.15.0",
     "browser-sync": "^2.11.1",
     "cookie-parser": "^1.4.1",
-    "express-zip": "^2.0.0",
-    "express": "^4.13.4",
     "easy-zip": "0.0.4",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
