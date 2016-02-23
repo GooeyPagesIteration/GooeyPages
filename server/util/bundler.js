@@ -18,11 +18,11 @@ Bundler.bundle = function(req,res, next) {
     }
     //add css file path
     serverText += `app.get("/css/style.css", (req, res) => {
-      res.sendFile(path.join(__dirname,"../css/style.css"))
+      res.sendFile(path.join(__dirname,"/../css/style.css"))
     });\n`;
     //add particle functionality
     serverText += `app.get("/js/index.js", (req, res) => {
-      res.sendFile(path.join(__dirname,"../js/index.js"))
+      res.sendFile(path.join(__dirname,"/../js/index.js"))
     });\n`;
     //listen port
     serverText += '\napp.listen(3000);';
