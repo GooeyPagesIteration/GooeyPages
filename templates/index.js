@@ -1,24 +1,4 @@
 
-// DYNAMIC DATA FOR DEMO THEME////////////////////////////////////
-// NOTE : Used theme from other resource and pulled in the info
-// /////////////////////////////////////////////
-$.getJSON("http://cpv2api.com/posts/published/j-w-v", function(resp){
-	if(resp.success){
-		for (var i = 0; i < resp.data.length; i++) {
-    $('.posts ul').append('<li><a target="_blank" href="' + resp.data[i].link +'">' + resp.data[i].title + ' <span> ' +resp.data[i].views+ ' views</span> </a></li>');
-    }
-	}
-});
-
-$.getJSON("http://cpv2api.com/pens/showcase/j-w-v", function(resp){
-	if(resp.success){
-		for (var i = 0; i < 5; i++) {
-    $('.pens ul').append('<li><a target="_blank" href="' + resp.data[i].link +'">' + resp.data[i].title + ' <span> ' +resp.data[i].views+ ' views</span> </a></li>');
-    }
-	}
-});
-
-
 // ANIMATION LIBRARY////////////////////////////////////
 // NOTE : Background animation for demo theme
 // /////////////////////////////////////////////
