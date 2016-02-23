@@ -17,6 +17,7 @@ userController.createUser = function(req, res) {
   });
   newUser.save(function(err, result) {
   	if (err) return res.render('./../client/signup', {error: 'Username invalid'});
+
     User.findOne({username: req.body.username,}, (err, result) => {
       fs.mkdir(`userpages/${result._id}`, (err) => {
         if(err) return console.log(err);

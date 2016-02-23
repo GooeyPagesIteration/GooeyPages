@@ -14,7 +14,7 @@ Bundler.bundle = function(req,res, next) {
 
     //add file paths to html files
     for(var i in files) {
-      serverText += `app.get('/${files[i].replace(/(.html)$/g,'')}', (req, res) => {\n\tres.sendFile(path.join(__dirname,'./../client/${files[i]}'))\n})\n\n`;
+      serverText += `app.get('/${files[i].replace(/(.html)$/g,'')}', (req, res) => {\n\tres.sendFile(path.join(__dirname,'/../client/${files[i]}'))\n})\n\n`;
     }
     //add css file path
     serverText += `app.get("/css/style.css", (req, res) => {
