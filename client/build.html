@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+  <!-- HTML TO DIPLAY THE WEBPAGE -->
 <html >
   <head>
     <meta charset="UTF-8">
@@ -14,8 +15,13 @@
 
   </head>
   <body>
+    <!-- the menu on the side -->
+    <!-- I pt of the menu where the dragable options live -->
     <div class="menuRow">
       <div class="menu" id="set">
+
+        <!-- draggable + ANYTHING is a special id given to the div in order to let elements to be moved using the mouse. https://jqueryui.com/draggable/ -->
+        <!-- .ui-widget-content: Class to be applied to content containers. Applies content container styles to an element and its child text, links, and icons. (can be applied to parent or sibling of header). -->
         <div id="draggableIMAGE" class="ui-widget-content">
           <p>IMAGE</p>
         </div>
@@ -26,26 +32,45 @@
           <p>2COL</p>
         </div>
       </div>
+
+
+
+      <!-- THIS IS the II part of the menu where the 2 SAVE options live -->
       <div class="menu2">
+        <!-- Here is the function call to the SAVE button -->
         <div class="save" onclick="saveHTML()">
           save
         </div>
-        <div class="export" onclick="download()">
+         <!-- HERE'S the onclick function that allows you to download your created HTML file -->
+          <div class="export" onclick="download()">
           export
         </div>
+
+
+        <!-- This is the III pt of the side menu where you can ask to show grid lines, the header grid lines are inaccurate! -->
         <div class="" id="grid">
           Show zones
         </div>
+
+        <!-- IV pt of the menu where you can give your document a name -->
       </div>
          <input id="name" type="text" name="name" placeholder="Name of page"></input>
     </div>
 
-    <div id="particles-js">
 
+
+
+    <div id="particles-js">
+<!-- BEGINNING OF HEADER CONTAINER -->
       <div class="container" id="sortable">
         <div class="row top sortable">
           <div class="twelve column sortable">
             <div class="logo sortable">V</div>
+
+
+
+
+            <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
             <h1 contenteditable="true">Joseph William Victory</h1>
             <h2> Web Developer</h2>
           </div>
@@ -54,29 +79,42 @@
         <div class="row">
           <div class="one-half column">
             <div class="pens pulled">
+                <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
               <h1 contenteditable="true">Pens</h1>
               <ul></ul>
             </div>
           </div>
+      </div>
 
+     <div class="row">
           <div class="one-half column">
             <div class="posts pulled">
+                <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
               <h1 contenteditable="true">Posts</h1>
               <ul class="sortable"></ul>
             </div>
           </div>
-        </div>
-      </div>
+    </div>
+<!-- END OF HEADER CONTAINER -->
+
+
+
+
+
 
     <div class="container ">
       <div class="footer">
+          <!-- the contendible attribute in the h1 tag is to make the text in the tag editable -->
       <p contenteditable="true">Made using the awesome <a href="">Love what you do</p>
      </div>
     </div>
       </div>
+
+      <!-- This is to put the animation on the back of the webpage -->
     <script src=
     'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'>
     </script>
+    <!-- INDEX.JS IS GIVING THE DRAG DROP FUNC and appending the dragged and dropped items -->
     <script src="js/index.js"></script>
     <script src="js/buttons.js"></script>
 
