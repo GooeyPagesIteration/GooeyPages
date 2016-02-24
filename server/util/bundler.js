@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-
+/////////////////
+// creating the server file that gets sent ot the user along in their download
+/////////////////
 const Bundler = {};
 
 Bundler.bundle = function(req,res, next) {
