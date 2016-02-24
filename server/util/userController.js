@@ -15,7 +15,7 @@ userController.createUser = function(req, res) {
   if (!req.body.username || !req.body.password) {
     return res.render(path.join(client, 'signup'), {error: 'Must include username and password'});
   }
-  
+
   var newUser = new User({
     username: req.body.username,
     password: req.body.password
