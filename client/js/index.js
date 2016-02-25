@@ -167,6 +167,13 @@ $('#draggableCOL').draggable({
   helper: "clone",
   revert: "invalid"
 });
+$('#remove').droppable({
+over: function(event, ui){
+  ui.draggable.remove();
+}
+});
+
+
 $("li").sortable({
   connectWith: ".container",
   placeholder: "ui-state-highlight"
