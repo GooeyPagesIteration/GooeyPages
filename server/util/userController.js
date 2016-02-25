@@ -54,6 +54,7 @@ userController.createUser = function(req, res) {
 
 userController.verifyUser = function(req, res) {
   // if no username or password provided
+  console.log('is this here?',req.body)
   if (!req.body.username || !req.body.password) {
     return res.redirect('/signup');
   }

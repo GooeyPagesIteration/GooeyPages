@@ -35,23 +35,27 @@ app.post('/login', userController.verifyUser);
 
 //build page after login
 app.get('/build', sessionController.isLoggedIn, (req, res) => {
+  console.log('test running')
   res.sendFile(path.join(__dirname, '/../client/build.html'));
 });
 
 
 app.post('/save', saver, (req, res) => {
-  console.log(req.cookies.ssid);
+  // console.log(req.cookies.ssid);
 });
 
 
 //download function (that lives in client/js/buttons.js) brings you here
 app.use('/download', bundler.bundle);
 app.get('/download', (req, res) => {
+  console.log('headers before', res._headers);
   //zip folder and sends to user
   var zip = new EasyZip();
   zip.zipFolder(path.join(__dirname,`./../userpages/${req.cookies.ssid}`), (err) => {
     if(err) console.log(err);
     zip.writeToResponse(res,'download');
+console.log('headers', res._headers['content-disposition']);
+//console.log('res.download', res.download);
   });
 });
 
@@ -71,3 +75,4 @@ app.get('/logout', function(req, res) {
 
 
 app.listen(3000);
+module.exports = app;

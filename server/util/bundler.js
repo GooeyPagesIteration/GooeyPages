@@ -29,7 +29,7 @@ Bundler.bundle = function(req,res, next) {
     //listen port
     serverText += '\napp.listen(3000);';
 
-    console.log(serverText);
+    // console.log(serverText);
     //write actual file
     fs.writeFile(path.join(__dirname, `../../userpages/${req.cookies.ssid}/server/server.js`), serverText, (err) => {
       if (err) throw err;

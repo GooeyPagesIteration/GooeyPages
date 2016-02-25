@@ -1,0 +1,25 @@
+html{
+  background-image: url("login background.png");
+}
+body{
+  background-color: white;
+  background-image: url("login background.png");
+
+}
+
+.loginform{
+  background-color: pink;
+  margin-left: 40%;
+}
+
+.loginword{
+  font-family: 'Noto Sans', sans-serif;
+
+}
+.title{
+  font-family: 'Poiret One', cursive;
+  font-size: 72;
+  margin: auto;
+  position: relative;
+
+}

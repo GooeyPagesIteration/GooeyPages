@@ -2,14 +2,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Gooey Home</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  Login
-  <form method="POST" action='/login'>
+  <p class = 'title'> Gooey Pages </p>
+  <p class = 'loginword' >  Login </p>
+
+  <form class = 'loginform' method="POST" action='/login'>
     <input name="username" type="text" placeholder="username"></input>
     <input name="password" type="password" placeholder="password"></input>
     <input type='submit' value="login">
   </form>
+
   <a href='./signup'>Sign up</a>
 </body>
 </html>
