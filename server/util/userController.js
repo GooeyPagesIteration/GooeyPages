@@ -70,7 +70,7 @@ userController.verifyUser = function(req, res) {
 /////////////////////
 // REDIRECT!
 /////////////////////
-      res.redirect('/build');
+      res.redirect('/newTemp');
     });
   });
 };
