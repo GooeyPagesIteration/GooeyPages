@@ -1,18 +1,17 @@
 $.getJSON("http://cpv2api.com/posts/published/j-w-v", function(resp) {
   if (resp.success) {
-    for (var i = 0; i < resp.data.length; i++) {
-      $('.posts ul').append('<li><a target="_blank" href="' + resp.data[i].link + '">' + resp.data[i].title + ' <span> ' + resp.data[i].views + ' views</span> </a></li>');
+    for (var i = 0; i < resp.data.length-1; i++) {
+      $('.posts ul').append('<li><p target="_blank" href="#" style="line-height:1.5em">' + resp.data[i].title + ' <span> ' + resp.data[i].views + ' views</span> </p></li>');
     }
   }
 });
 $.getJSON("http://cpv2api.com/pens/showcase/j-w-v", function(resp) {
   if (resp.success) {
     for (var i = 0; i < 5; i++) {
-      $('.pens ul').append('<li><a target="_blank" href="' + resp.data[i].link + '">' + resp.data[i].title + ' <span> ' + resp.data[i].views + ' views</span> </a></li>');
+      $('.pens ul').append('<li><p target="_blank" href="#" style="line-height:1.5em">' + resp.data[i].title + ' <span> ' + resp.data[i].views + ' views</span> </p></li>');
     }
   }
 });
-
 
 
 // DRAG AND DROP////////////////////////////////
@@ -66,12 +65,14 @@ $("#set div").draggable({
     $('.custom-helper').remove();
     //JOSH change to add li
     if (nodeID === 'draggableTEXT') {
-      newNode = $('<li><p>Lorem</p></li>');
+      newNode = [$('<li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget libero quis dolor convallis luctus. Fusce in egestas ipsum.</p></li>'), 8, 4];
       // $('#grid').append($newNode);
+      newNode[0].dblclick(function(e) {this.remove();});
       gridster.add_widget.apply(gridster, newNode);
     } else if (nodeID === 'draggableIMAGE') {
-      newNode = $('<li><img class=\'soratable\'src=\'http://wristgeek.com/wp-content/uploads/2014/09/hello_world.png\'/><li>');
+      newNode = [$('<li><img src=\'http://wristgeek.com/wp-content/uploads/2014/09/hello_world.png\'/><li>'), 8, 6]  ;
       // $result.append(newNode);
+      newNode[0].dblclick(function(e) {this.remove();});
       gridster.add_widget.apply(gridster, newNode);
     } else if (nodeID === 'draggableCOL') {
       newNode = '<div class=\'ui-state-default sortable row\' id=\'newHalf\'></div>';
@@ -83,7 +84,6 @@ $("#set div").draggable({
   },
   revert: "invalid"
 });
-
 function removeHelper(event) {
   return $('custom-helper').remove();
 }
@@ -107,26 +107,27 @@ $(function() {
 
   gridster = $(".gridster > ul").gridster({
     widget_margins: [5, 5],
-    widget_base_dimensions: [200, 200],
-    resize: {enabled:true}
+    widget_base_dimensions: [50, 50],
+    resize: {enabled:true},
+    max_cols: 20
   }).data('gridster');
 
   var widgets = [
-    ['<li><h1 contenteditable="true">Joseph William Victory</h1></li>', 1, 1],
-    ['<li><h2> Web Developer</h2></li>', 1, 1],
-    ['<li><div class="pens pulled"><h1 contenteditable="true">Pens</h1><ul></ul></div></li>', 1, 1],
-    ['<li><div class="posts pulled"><h1 contenteditable="true">Posts</h1><ul class="sortable"></ul></div></li>', 1, 1],
-    ['<li>4</li>', 1, 1],
-    ['<li>5</li>', 1, 1],
-    ['<li>6</li>', 1, 1],
-    ['<li>7</li>', 1, 1],
-    ['<li>8</li>', 1, 1],
-    ['<li>9</li>', 1, 1],
-    ['<li>10</li>', 1, 1]
+    [$('<li><h1 contenteditable="true">Joseph William Victory</h1></li>'), 16, 2],
+    [$('<li><h2 contenteditable="true"> Web Developer</h2></li>'), 16, 1],
+    [$('<li><div class="pens pulled"><h1 contenteditable="true">Pens</h1><ul></ul></div></li>'), 8, 4],
+    [$('<li><div class="posts pulled"><h1 contenteditable="true">Posts</h1><ul class="sortable"></ul></div></li>'), 8, 4],
+    [$('<li class="pic"><img src="http://wristgeek.com/wp-content/uploads/2014/09/hello_world.png"/></li>'), 8, 6],
+    [$('<li class="pic"><img src="http://wristgeek.com/wp-content/uploads/2014/09/hello_world.png"/></li>'), 8, 6],
+    [$('<li><p style="font-size:20px;" contenteditable="true">Made using the awesome <a href="">Love what you do</p></li>'), 16, 2]
   ];
-
-  $.each(widgets, function(i, widget) {
-    gridster.add_widget.apply(gridster, widget);
-  });
+  for(var i = 0; i < widgets.length; i ++) {
+    widgets[i][0].dblclick(function(e) {this.remove();});
+    gridster.add_widget.apply(gridster, widgets[i]);
+  }
+  // $.each(widgets, function(i, widget) {
+  //   widget.dblclick(function(e) {this.remove()})
+  //   gridster.add_widget.apply(gridster, widget);
+  // });
 
 });
