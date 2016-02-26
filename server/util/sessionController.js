@@ -7,8 +7,8 @@ var sessionController = {};
 * verify whether or not the session is still valid.
 */
 sessionController.isLoggedIn = function(req, res, next) {
-  console.log('running');
-  console.log(req.cookies.ssid);
+//  console.log('running');
+//  console.log(req.cookies.ssid);
   Session.findOne({cookieId: req.cookies.ssid}, function(err, result) {
     if (err || !result) return res.redirect('/');
     console.log(result)

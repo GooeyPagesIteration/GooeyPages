@@ -54,25 +54,26 @@ userController.createUser = function(req, res) {
 
 userController.verifyUser = function(req, res) {
   // if no username or password provided
-  console.log('is this here?',req.body)
+  //console.log('is this here?',req.body)
   if (!req.body.username || !req.body.password) {
     return res.redirect('/signup');
   }
   // username/password is incorrect
   User.findOne({username: req.body.username}, function(err, result) {
-
     // IF username not found
     if (err || !result) return res.redirect('/signup');
+    //console.log('result', result)
 
     result.comparePassword(req.body.password, function(err, pswdCheck) {
       if(!pswdCheck) return res.redirect('/signup');
+      //console.log('res.headers.id', res.headers.id)
       cookieController.setSSIDCookie(res, result._id);
-
 /////////////////////
 // REDIRECT!
 /////////////////////
       res.redirect('/build');
     });
+
   });
 };
 
