@@ -6,7 +6,7 @@ const path = require('path');
 //creates html page the one that gets sent to user in the download or that gets saved
 //////////
 module.exports = function Saver(req, res, next) {
-  console.log(req.body)
+  console.log(req.body.inner    )
   const html =
   `<!DOCTYPE html>
   <html>

@@ -38,6 +38,9 @@ app.get('/build', sessionController.isLoggedIn, (req, res) => {
   console.log('test running')
   res.sendFile(path.join(__dirname, '/../client/build.html'));
 });
+app.get('/newTemp', sessionController.isLoggedIn, (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/newTemp.html'));
+});
 
 
 app.post('/save', saver, (req, res) => {
