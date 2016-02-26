@@ -1,10 +1,12 @@
+
 const fs = require('fs');
 const path = require('path');
 
-
-//creates html page
+///////////
+//creates html page the one that gets sent to user in the download or that gets saved
+//////////
 module.exports = function Saver(req, res, next) {
-  console.log(req.body)
+  console.log(req.body.inner    )
   const html =
   `<!DOCTYPE html>
   <html>
@@ -41,6 +43,8 @@ module.exports = function Saver(req, res, next) {
     </script>
   </html>`;
 
+//this is an edge case handler in case that when the user wants to save or export the file under a name. If the user writes name.html there's no need fro them to writeFile
+//.html since we're already creating it as a .html doc. So the edge case is if they write it with a .html end then that gets taken off.
   fs.writeFile(path.join(__dirname, `../../userpages/${req.cookies.ssid}/client/${req.body.name.replace(/(.html)/gm,"")}.html`), html, (err) => {
     if (err) throw err;
   });

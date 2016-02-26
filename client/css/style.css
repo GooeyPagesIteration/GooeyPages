@@ -110,7 +110,9 @@ h2 {
 /*div {
   border: 1px dotted white;
 }*/
-
+.newStuff {
+  font-size: 20px;
+}
 .menu {
   /*width: 50%; */
   /* height: 53px; */
@@ -169,13 +171,12 @@ h2 {
   height: 100vh;
   background: #131212;
   /* margin-bottom: 36px; */
-  width: 177px;
+  width: 250px;
   position: absolute;
   right: 0;
   top: 0;
   display: grid;
   border-left: 1px solid rgba(128, 128, 128, 0.42);
-  height: 100vh;
 }
 
 #particles-js {

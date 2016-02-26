@@ -8,9 +8,12 @@ var Schema = mongoose.Schema;
 * (actually, Mongo's cleanup service only runs once per minute so the session
 * could last up to 90 seconds before it's deleted, but still pretty cool!)
 */
+
+// THIS IS BEING USED IN: sessionController.js when checking if a user is logged in
+
 var sessionSchema = new Schema({
   cookieId: { type: String, required: true, unique: true },
-  createdAt: { type: Date, expires: 30, default: Date.now }
+  createdAt: { type: Date, expires: 300, default: Date.now }
 });
 
 module.exports = mongoose.model('Session', sessionSchema);

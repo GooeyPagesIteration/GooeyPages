@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-
+/////////////////
+// creating the server file that gets sent ot the user along in their download
+/////////////////
 const Bundler = {};
 
 Bundler.bundle = function(req,res, next) {
@@ -27,7 +29,7 @@ Bundler.bundle = function(req,res, next) {
     //listen port
     serverText += '\napp.listen(3000);';
 
-    console.log(serverText);
+    // console.log(serverText);
     //write actual file
     fs.writeFile(path.join(__dirname, `../../userpages/${req.cookies.ssid}/server/server.js`), serverText, (err) => {
       if (err) throw err;

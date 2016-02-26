@@ -4,8 +4,9 @@
   "description": "Server generator that builds front end webpages",
   "main": "server/server.js",
   "scripts": {
-    "start": "nodemon --ignore userpages/ --ignore *.zip server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js",
+    "test": "./node_modules/.bin/mocha ./test"
+
   },
   "repository": {
     "type": "git",
@@ -23,13 +24,16 @@
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.0",
     "browser-sync": "^2.11.1",
+    "chai": "^3.5.0",
     "cookie-parser": "^1.4.1",
     "easy-zip": "0.0.4",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-zip": "^2.0.0",
     "github": "^0.2.4",
+    "mocha": "^2.4.5",
     "mongoose": "^4.4.4",
-    "nodemon": "^1.9.0"
+    "nodemon": "^1.9.0",
+    "supertest": "^1.2.0"
   }
 }

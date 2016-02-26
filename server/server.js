@@ -17,9 +17,11 @@ mongoose.connect(mongoURI);
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.use(express.static('client'));
 app.use(cookieParser());
+
+
+
 
 //home page
 app.get('/', function(req, res) {
@@ -27,33 +29,36 @@ app.get('/', function(req, res) {
   res.render('./../client/index');
 });
 
+//we post to /login the username and PW inputted to login
+app.post('/login', userController.verifyUser);
+
 
 //build page after login
 app.get('/build', sessionController.isLoggedIn, (req, res) => {
+  console.log('test running')
   res.sendFile(path.join(__dirname, '/../client/build.html'));
 });
-app.use(express.static('client'));
-
-app.post('/save', saver, (req, res) => {
-  console.log(req.cookies.ssid);
+app.get('/newTemp', sessionController.isLoggedIn, (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/newTemp.html'));
 });
 
 
-//scrapped for now - would like to add oauth to github to create github pages creation
-// app.get('/github', git.start);
-// app.get('/gitgo', git.oauth);
-// app.get('/gitoauth', (req, res) => {
-//   console.log('here')
-// })
+app.post('/save', saver, (req, res) => {
+  // console.log(req.cookies.ssid);
+});
 
-//download function
+
+//download function (that lives in client/js/buttons.js) brings you here
 app.use('/download', bundler.bundle);
 app.get('/download', (req, res) => {
+  console.log('headers before', res._headers);
   //zip folder and sends to user
   var zip = new EasyZip();
   zip.zipFolder(path.join(__dirname,`./../userpages/${req.cookies.ssid}`), (err) => {
     if(err) console.log(err);
     zip.writeToResponse(res,'download');
+console.log('headers', res._headers['content-disposition']);
+//console.log('res.download', res.download);
   });
 });
 
@@ -64,8 +69,6 @@ app.get('/signup', function(req, res) {
 });
 
 
-app.post('/login', userController.verifyUser);
-
 app.use('/logout', cookieParser());
 app.get('/logout', function(req, res) {
   sessionController.logout(req.cookies.ssid);
@@ -74,5 +77,5 @@ app.get('/logout', function(req, res) {
 
 
 
-
 app.listen(3000);
+module.exports = app;
